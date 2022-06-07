@@ -6,16 +6,16 @@ const App = () => {
   return (
     <main className={styles.main}>
       <section className={styles.dies}>
-        <Die />
-        <Die />
-        <Die />
-        <Die />
-        <Die />
-        <Die />
-        <Die />
-        <Die />
-        <Die />
-        <Die />
+        <Die value='1' />
+        <Die value='1' />
+        <Die value='1' />
+        <Die value='1' />
+        <Die value='1' />
+        <Die value='1' />
+        <Die value='1' />
+        <Die value='1' />
+        <Die value='1' />
+        <Die value='1' />
       </section>
     </main>
   );
