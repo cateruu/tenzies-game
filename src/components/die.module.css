@@ -16,3 +16,12 @@
 .held {
   background-color: #59e391;
 }
+
+@media screen and (max-width: 550px) {
+  .die {
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+    font-size: 1.4rem;
+  }
+}
