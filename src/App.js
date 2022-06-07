@@ -1,14 +1,15 @@
 import React from 'react';
 import { useState } from 'react';
 import { nanoid } from 'nanoid';
-import styles from './app.module.css';
+import classes from './app.module.css';
 import Die from './components/Die';
 import RollBtn from './components/RollBtn';
+import Header from './components/Header';
 
 const App = () => {
-  const newDice = () => {
+  const newDice = (length) => {
     const arrayOfDice = [];
-    for (let i = 0; i < 10; i++) {
+    for (let i = 0; i < length; i++) {
       const randomNumber = Math.ceil(Math.random() * 6);
       arrayOfDice.push({
         value: randomNumber,
@@ -21,7 +22,11 @@ const App = () => {
   };
 
   const rollDice = () => {
-    setDice(newDice());
+    setDice((oldDice) =>
+      oldDice.map((die) => {
+        return die.isHeld ? { ...die } : newDice(1)[0];
+      })
+    );
   };
 
   const holdDice = (id) => {
@@ -36,7 +41,7 @@ const App = () => {
     );
   };
 
-  const [dice, setDice] = useState(newDice());
+  const [dice, setDice] = useState(newDice(10));
 
   const diceElements = dice.map((die) => (
     <Die
@@ -48,8 +53,9 @@ const App = () => {
   ));
 
   return (
-    <main className={styles.main}>
-      <section className={styles.dice}>{diceElements}</section>
+    <main className={classes.main}>
+      <Header />
+      <section className={classes.dice}>{diceElements}</section>
       <RollBtn handleClick={rollDice} />
     </main>
   );

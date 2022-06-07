@@ -1,9 +1,9 @@
 import React from 'react';
-import styles from './rollBtn.module.css';
+import classes from './rollBtn.module.css';
 
 const RollBtn = (props) => {
   return (
-    <button onClick={props.handleClick} className={styles.button}>
+    <button onClick={props.handleClick} className={classes.button}>
       Roll
     </button>
   );
