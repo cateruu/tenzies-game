@@ -14,7 +14,7 @@
   align-items: center;
 }
 
-.dies {
+.dice {
   width: 100%;
   display: grid;
   grid-template: auto auto / repeat(5, 1fr);
