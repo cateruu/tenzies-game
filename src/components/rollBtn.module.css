@@ -9,6 +9,7 @@
   font-size: 1.3rem;
   cursor: pointer;
   font-family: 'Karla', sans-serif;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.6);
 }
 
 .button:active {
