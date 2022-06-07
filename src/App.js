@@ -2,9 +2,12 @@ import React from 'react';
 import { useState } from 'react';
 import styles from './app.module.css';
 import Die from './components/Die';
+import RollBtn from './components/RollBtn';
 
 const App = () => {
-  const [dices, setDice] = useState(newDice());
+  const [dice, setDice] = useState(newDice());
+
+  const diceElements = dice.map((die) => <Die value={die} />);
 
   function newDice() {
     const arrayOfDice = [];
@@ -16,11 +19,14 @@ const App = () => {
     return arrayOfDice;
   }
 
-  const diceElements = dices.map((die) => <Die value={die} />);
+  function rollDice() {
+    setDice(newDice());
+  }
 
   return (
     <main className={styles.main}>
       <section className={styles.dice}>{diceElements}</section>
+      <RollBtn handleClick={rollDice} />
     </main>
   );
 };
