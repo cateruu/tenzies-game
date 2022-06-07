@@ -5,6 +5,7 @@ import classes from './app.module.css';
 import Die from './components/Die';
 import RollBtn from './components/RollBtn';
 import Header from './components/Header';
+import WinPopup from './components/WinPopup';
 
 const App = () => {
   const newDice = (length) => {
@@ -83,6 +84,7 @@ const App = () => {
 
   return (
     <main className={classes.main}>
+      <WinPopup win={win} />
       <Header />
       <section className={classes.dice}>{diceElements}</section>
       <RollBtn handleClick={win ? playAgain : rollDice} win={win} />
