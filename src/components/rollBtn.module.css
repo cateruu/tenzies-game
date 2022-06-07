@@ -1,5 +1,5 @@
 .button {
-  width: 150px;
+  width: 130px;
   height: 50px;
   background-color: #5035ff;
   border: none;
@@ -9,9 +9,8 @@
   font-size: 1.3rem;
   cursor: pointer;
   font-family: 'Karla', sans-serif;
-  transition: 0.2s;
 }
 
-.button:hover {
-  border-radius: 10px;
+.button:active {
+  box-shadow: inset 5px 5px 10px -3px rgba(0, 0, 0, 0.7);
 }
