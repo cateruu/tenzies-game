@@ -6,6 +6,7 @@ import Die from './components/Die';
 import RollBtn from './components/RollBtn';
 import Header from './components/Header';
 import WinPopup from './components/WinPopup';
+import Confetti from 'react-confetti';
 
 const App = () => {
   const newDice = (length) => {
@@ -55,12 +56,6 @@ const App = () => {
     }
   }, [dice]);
 
-  const checkIfWin = (score) => {
-    if (score === 100) {
-      setWin((prevState) => !prevState);
-    }
-  };
-
   const playAgain = () => {
     setDice(newDice(10));
     setWin((prevState) => !prevState);
@@ -77,6 +72,7 @@ const App = () => {
 
   return (
     <main className={classes.main}>
+      {win && <Confetti />}
       <WinPopup win={win} />
       <Header />
       <section className={classes.dice}>{diceElements}</section>
