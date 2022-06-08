@@ -46,20 +46,13 @@ const App = () => {
   const [win, setWin] = useState(false);
 
   useEffect(() => {
-    let score = 0;
-    for (let die of dice) {
-      if (!die.isHeld) continue;
+    const allHeld = dice.every((die) => die.isHeld);
+    const firstValue = dice[0].value;
+    const allSameValue = dice.every((die) => die.value === firstValue);
 
-      for (let dieCheck of dice) {
-        if (!dieCheck.isHeld) continue;
-
-        if (die.value === dieCheck.value) {
-          score++;
-        }
-      }
+    if (allHeld && allSameValue) {
+      setWin(true);
     }
-
-    checkIfWin(score);
   }, [dice]);
 
   const checkIfWin = (score) => {
